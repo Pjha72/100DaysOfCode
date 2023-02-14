@@ -1,0 +1,72 @@
+Q1 :-> Single Number
+Code :-
+class Solution {
+public:
+    int singleNumber(vector<int>& nums) {
+        map<int,int> m;
+        for(int i=0;i<nums.size();i++){
+            m[nums[i]]++;
+        }
+
+        for(auto i : m){
+            if(i.second == 1){
+                return i.first;
+            }
+        }
+        return -1;
+    }
+};
+
+Q2 :-> Single Number II
+Code:-
+class Solution {
+public:
+    int singleNumber(vector<int>& nums) {
+         map<int,int> m;
+        for(int i=0;i<nums.size();i++){
+            m[nums[i]]++;
+        }
+        for(auto i: m){
+            if(i.second == 1){
+                return i.first;
+            }
+        }
+        return -1;
+    }
+};
+
+Q3 :-> Single Number III
+Code:-
+class Solution {
+public:
+    vector<int> singleNumber(vector<int>& nums) {
+        vector<int> ans;
+        map<int,int> m;
+        for(int i=0;i<nums.size();i++){
+            m[nums[i]]++;
+        }
+        for(auto i : m){
+            if(i.second == 1){
+                ans.push_back(i.first);
+                if(ans.size()==2)
+                    return ans;
+            }
+        }
+        return {-1,-1};
+    }
+};
+
+Q4 :-> Decode Xored Array
+Code:-
+class Solution {
+public:
+    vector<int> decode(vector<int>& encoded, int first) {
+        vector<int> ans;
+        ans.push_back(first);
+        for(int i=0;i<encoded.size();i++){
+            int temp = encoded[i] ^ ans[i];
+            ans.push_back(temp);
+        }
+        return ans;
+    }
+};
